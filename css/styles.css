@@ -21,6 +21,19 @@ body {
     background-color: #cfebf7;
 }
 
+/* Style rules for mobile viewport */
+
+/* Style rules to show mobile class and hide tablet-desktop class */
+.mobile {
+    display: block;
+    align-items: center;
+    align-content: center;
+}
+
+.tablet-desktop {
+    display: none;
+}
+
 /* Style rules for navigation area */
 nav {
     background-color: #fff;
@@ -33,14 +46,18 @@ nav ul {
 }
 
 nav li {
-    display: inline-block;
     font-size: 1.5em;
     font-family: Geneva, Arial, sans-serif;
     font-weight: bold;
+    border-top: 1px solid #000;
+}
+
+nav li:first-child {
+    border-top: none;
 }
 
 nav li a {
-    display: block;
+    display: inline-block;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     padding-left: 2em;
@@ -48,15 +65,9 @@ nav li a {
     text-decoration: none;
 }
 
-/* Show mobile class, hide tablet-desktop class */
-.mobile {
-    display: block;
-    align-items: center;
-    align-content: center;
-}
-
-.tablet-desktop {
-    display: none;
+nav li a:hover {
+    color: #fff;
+    background-color: #cfebf7;
 }
 
 /* Style rules for main content */
@@ -76,7 +87,7 @@ main h3 {
 main ul {
     list-style: none;
     text-decoration: none;
-    font-size: 2em
+    font-size: 1.25em
 }
 
 h1 {
@@ -92,42 +103,151 @@ h1 {
     font-style: inherit;
 }
 
+selector:pseudo-class {
+    property: value;
+}
+
+.social {
+    max-width: 4%;
+    max-height: 4%;
+    float: right;
+    padding-bottom: 2%;
+    padding-right: .5%;
+}
+
 .action {
     font-size: 1.75em;
     font-weight: bold;
     text-align: center;
 }
 
-.text {
-    font-size: 15px;
-    padding-left: 30%;
-    padding-right: 20%;
-}
-
 .container {
     align-content: center;
+    max-width: 80%;
+    margin: auto;
 }
 
 .headshot {
-    max-width: 26%;
-    max-height: 15%;
-    float: left;
-    padding-right: 2%;
+    max-height: 60%;
+    max-width: 60%;
+    align-content: center;
 }
 
-.hide {
-    color: #cfebf7;
+.photo {
+    max-width: 60%;
+    max-height: 60%;
+    float: center;
+}
+
+.text {
+    font-size: 15px;
+    padding-left: 12%;
+    padding-right: 12%;
+    align-content: center;
+}
+
+#project1,
+#project2 {
+    max-width: 80%;
+    align-content: center;
+    /* max-height: 15%; */
+}
 }
 
 /* Style rules for footer content */
-footer p {
+
+footer {
     text-align: center;
     font-size: 0.85em;
     background-color: #fff;
     color: #000;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    padding left: 0%;
-    padding-right: 0%;
-    float: clear;
+    padding: 1% 0;
+}
+
+* {
+    box-sizing: border-box
+}
+
+/* Media Query for Tablet Viewport */
+@media screen and (min-width: 620px),
+print {
+    .tablet-desktop {
+        display: block;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    /* Tablet Viewport: Style Rules for nav area */
+    nav li {
+        border-top: none;
+        display: inline-block;
+    }
+
+    .headshot {
+        max-width: 40%;
+        max-height: 80%;
+        float: left;
+        padding-right: 2%;
+        padding-left: 5%;
+    }
+
+    .text {
+        font-size: 15px;
+        padding-left: 35%;
+        padding-right: 12%;
+    }
+
+    .photo {
+        max-width: 33%;
+        max-height: 35%;
+        float: left;
+        padding-right: 2%;
+    }
+
+    #project1,
+    #project2 {
+        max-width: 80%;
+        /* max-height: 15%; */
+    }
+
+    .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+
+    }
+
+}
+
+/* Media Query for large Desktop Viewports */
+@media screen and (min-width: 1921px) {}
+
+/* Media Query for Desktop Viewport */
+@media screen and (min-width: 1000px),
+print {
+    nav li {
+        font-size: 1.5em;
+    }
+
+    nav li a:hover {
+        color: #fff;
+        background-color: #cfebf7;
+    }
+}
+
+/* Media Query for Print */
+@media print {
+
+    body {
+        background-color: #fff;
+        color: #000;
+    }
 }
